@@ -24,7 +24,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: url("https://images4.alphacoders.com/137/1375139.png");
+      background: url("https://www.transparenttextures.com/patterns/frosted-glass.png");
       opacity: 0.25;
       pointer-events: none;
     }
@@ -105,8 +105,20 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
     }
 
     .card {
@@ -219,4 +231,3 @@
   </footer>
 </body>
 </html>
-
