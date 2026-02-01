@@ -108,7 +108,7 @@
     }
 
     .card {
-      padding: 30px;
+      padding: 40px 30px;
       border-radius: 16px;
       background: linear-gradient(
         180deg,
@@ -119,12 +119,21 @@
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.5),
                   0 15px 30px rgba(0,0,0,0.35);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
     }
 
     .card:hover {
       transform: translateY(-6px);
       box-shadow: inset 0 1px 1px rgba(255,255,255,0.6),
                   0 25px 45px rgba(0,0,0,0.45);
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
 
     .card h3 {
@@ -174,41 +183,26 @@
     </section>
 
     <section class="cards">
-      <div class="card">
+      <a class="card" href="moviles.html">
+        <div class="icon">📱</div>
         <h3>Móviles</h3>
-        <p>
-          Reparación, mantenimiento y optimización de teléfonos móviles.
-          Texto de prueba para servicios relacionados con smartphones y tablets.
-        </p>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="pc.html">
+        <div class="icon">💻</div>
         <h3>PC</h3>
-        <p>
-          Soporte técnico para computadoras de escritorio y portátiles,
-          instalación de software, limpieza y mejora de rendimiento.
-        </p>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="hogar.html">
+        <div class="icon">🏠</div>
         <h3>Hogar</h3>
-        <p>
-          Soluciones tecnológicas para el hogar: redes, dispositivos inteligentes
-          y configuración de equipos domésticos.
-        </p>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="tv.html">
+        <div class="icon">📺</div>
         <h3>TV</h3>
-        <p>
-          Configuración, mantenimiento y soporte para televisores inteligentes,
-          sistemas multimedia y streaming.
-        </p>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="otros.html">
+        <div class="icon">🧩</div>
         <h3>Otros</h3>
-        <p>
-          Servicios adicionales y soluciones personalizadas según las
-          necesidades del cliente. Texto de prueba descriptivo.
-        </p>
-      </div>
+      </a>
     </section>
   </main>
 
