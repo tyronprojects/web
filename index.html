@@ -1,108 +1,205 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>tyronmtz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tyron Web Service</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #7ec8ff, #1a2a40);
+      color: #fff;
+    }
 
-    <style>
-        :root {
-            --bg: #0f172a;
-            --card: #111827;
-            --primary: #38bdf8;
-            --text: #e5e7eb;
-            --muted: #94a3b8;
-        }
+    /* Fondo estilo Aero */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("https://www.transparenttextures.com/patterns/frosted-glass.png");
+      opacity: 0.25;
+      pointer-events: none;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.15)
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
 
-        body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #1e293b, var(--bg));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text);
-        }
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .card {
-            background: linear-gradient(145deg, #020617, var(--card));
-            padding: 3rem 4rem;
-            border-radius: 20px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-            text-align: center;
-            animation: fadeUp 1s ease;
-        }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--primary);
-        }
+    .nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
 
-        p {
-            margin-top: 1rem;
-            color: var(--muted);
-            font-weight: 300;
-        }
+    .nav a:hover {
+      opacity: 1;
+    }
 
-        button {
-            margin-top: 2rem;
-            padding: 12px 28px;
-            border: none;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--primary), #0ea5e9);
-            color: #020617;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    main {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 30px;
+    }
 
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
-        }
+    .hero {
+      padding: 50px;
+      border-radius: 18px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.45),
+        rgba(255, 255, 255, 0.15)
+      );
+      backdrop-filter: blur(16px);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.6),
+                  0 20px 40px rgba(0,0,0,0.35);
+      margin-bottom: 50px;
+    }
 
-        .glow {
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
-        }
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 15px;
+    }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      opacity: 0.95;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      padding: 30px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.1)
+      );
+      backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.5),
+                  0 15px 30px rgba(0,0,0,0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.6),
+                  0 25px 45px rgba(0,0,0,0.45);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.15)
+      );
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    footer span {
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
-
-    <div class="card">
-        <h1 id="title">tyronmtz</h1>
-        <p>Ingeniería en sistemas · Web · Código</p>
-        <button onclick="toggleGlow()">Activar efecto</button>
+  <header>
+    <div class="nav">
+      <div class="logo">Tyron Web Service</div>
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="#">Portafolio</a>
+        <a href="#">Contacto</a>
+      </nav>
     </div>
+  </header>
 
-    <script>
-        const title = document.getElementById("title");
+  <main>
+    <section class="hero">
+      <h1>Bienvenido a Tyron Web Service</h1>
+      <p>
+        Texto de prueba: soluciones digitales modernas con un enfoque limpio,
+        elegante y funcional. Inspirado en el estilo Aero Glass de Windows 7,
+        combinando transparencia, profundidad y fluidez visual.
+      </p>
+    </section>
 
-        function toggleGlow() {
-            title.classList.toggle("glow");
-        }
-    </script>
+    <section class="cards">
+      <div class="card">
+        <h3>Desarrollo Web</h3>
+        <p>
+          Texto de prueba para describir servicios de desarrollo web, diseño
+          responsive y experiencias modernas para el usuario.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Sistemas & Software</h3>
+        <p>
+          Texto de prueba enfocado en sistemas, automatización y soluciones
+          personalizadas según las necesidades del cliente.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Soporte Técnico</h3>
+        <p>
+          Texto de prueba sobre mantenimiento, optimización y soporte continuo
+          para garantizar estabilidad y rendimiento.
+        </p>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <span>© 2026 Tyron Web Service · Diseño Aero Liquid Glass</span>
+  </footer>
 </body>
 </html>
